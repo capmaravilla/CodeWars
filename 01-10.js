@@ -62,22 +62,15 @@ function nextBigger(n) {
   for (let i = cache.length - 2; i >= 0; i--) {
     let rang = cache.slice(i)
     let rangMax = cache.slice(i).sort((a, b) => b - a)
-
-    console.log(rang)
-    console.log(rangMax)
-    let otro = [...rang].sort()
-    console.log(otro)
-    let n = otro.splice(1,1)
-    console.log(otro)
-    console.log(n)
-
     if (rangMax > rang) {
 
-      console.log(cache.slice(0,i))
-      console.log(rang)
-      console.log(otro)
-      return Number(cache.slice(0, i).join('') + n + otro.join(''))
+      let restoOrdenado = [...rang].sort()
+      let idx = restoOrdenado.indexOf(rang[0])
 
+      let n2 = restoOrdenado.splice(idx+1,1)[0]
+
+
+      return Number(cache.slice(0, i).join('') + n2 + restoOrdenado.join(''))
     }
   }
   return -1
@@ -85,16 +78,21 @@ function nextBigger(n) {
 
 // * -------------------------------------------------------------------
 
-console.log(nextBigger(1234567890))
-//                                   1234567908
-// console.log(nextBigger(7495))
-//                             7549
+// console.log(nextBigger(72510))
+// console.log(nextBigger(12)) //21
+// console.log(nextBigger(513)) //531
 // console.log(nextBigger(2017)) //2071
 // console.log(nextBigger(414)) //441
 // console.log(nextBigger(144)) //414
+console.log(nextBigger(29965200)) //50022699
 
 // * -------------------------------------------------------------------
 
-// let num = [4,9,5]
-// num.sort()
-// console.log(num)
+
+// let num = [7,2,5,1,0]
+// console.log(Math.min(...num))
+// console.log(num.slice(1))
+// let num2 = [...num]
+// console.log(num2.sort())
+// console.log(num2[num2.indexOf(2)+1])
+
