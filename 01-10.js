@@ -57,15 +57,44 @@ function rgb4(r, g, b) {
 // * Next bigger number with the same digits - 4kyu
 // * -------------------------------------------------------------------
 
-function nextBigger(n){
-  let cache = n.toString().split('')
-  .map(x => parseInt(x)).sort()
+function nextBigger(n) {
+  let cache = n.toString().split('').map(Number)
+  for (let i = cache.length - 2; i >= 0; i--) {
+    let rang = cache.slice(i)
+    let rangMax = cache.slice(i).sort((a, b) => b - a)
 
-  return cache
+    console.log(rang)
+    console.log(rangMax)
+    let otro = [...rang].sort()
+    console.log(otro)
+    let n = otro.splice(1,1)
+    console.log(otro)
+    console.log(n)
+
+    if (rangMax > rang) {
+
+      console.log(cache.slice(0,i))
+      console.log(rang)
+      console.log(otro)
+      return Number(cache.slice(0, i).join('') + n + otro.join(''))
+
+    }
+  }
+  return -1
 }
 
-console.log(nextBigger(12)) //21
-console.log(nextBigger(513)) //531
-console.log(nextBigger(2017)) //2071
-console.log(nextBigger(414)) //441
-console.log(nextBigger(144)) //414
+// * -------------------------------------------------------------------
+
+console.log(nextBigger(1234567890))
+//                                   1234567908
+// console.log(nextBigger(7495))
+//                             7549
+// console.log(nextBigger(2017)) //2071
+// console.log(nextBigger(414)) //441
+// console.log(nextBigger(144)) //414
+
+// * -------------------------------------------------------------------
+
+// let num = [4,9,5]
+// num.sort()
+// console.log(num)
