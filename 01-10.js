@@ -56,7 +56,7 @@ function rgb4(r, g, b) {
 // * -------------------------------------------------------------------
 // * Next bigger number with the same digits - 4kyu
 // * -------------------------------------------------------------------
-
+// ? Mirar que hacemos en cada momento
 function nextBigger(n) {
   let cache = n.toString().split('').map(Number)
   for (let i = cache.length - 2; i >= 0; i--) {
