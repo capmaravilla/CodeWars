@@ -1,7 +1,8 @@
 // * -------------------------------------------------------------------
 // * Next bigger number with the same digits - 4kyu
+// https://www.codewars.com/kata/55983863da40caa2c900004e
 // * -------------------------------------------------------------------
-// ? Mirar que hacemos en cada momento
+
 function nextBigger(n) {
   let cache = n.toString().split('').map(Number)
   for (let i = cache.length - 2; i >= 0; i--) {
@@ -34,16 +35,7 @@ function nextBigger(n) {
 // * -------------------------------------------------------------------
 
 console.log(nextBigger(34494251))
-//                     34494215 to equal
-//                     34494512
 // console.log(nextBigger(7495))
-//                             7549
 // console.log(nextBigger(2017)) //2071
 // console.log(nextBigger(414)) //441
 // console.log(nextBigger(144)) //414
-
-// * -------------------------------------------------------------------
-
-// let num = [4,9,5]
-// num.sort()
-// console.log(num)
