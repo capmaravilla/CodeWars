@@ -88,6 +88,7 @@ function nextBigger(n) {
 
       // devolvemos el resto del numero + el nuevo valor +
       // el resto del bloque ordenado
+
       return Number(cache.slice(0, i).join('') + n + sortTail.join(''))
 
     }
@@ -96,25 +97,34 @@ function nextBigger(n) {
   return -1
 }
 
+
 // * -------------------------------------------------------------------
 function nextBigger1(n){
   console.log(n);
   let chars = n.toString().split('');
   let i = chars.length-1;
+  // Hace un bucle hasta que detecte un mayor al
+  // indice anterior con lo que tiene el rango a
+  // tratar
   while(i > 0) {
     if (chars[i]>chars[i-1]) break;
     i--;
   }
-  console.log(i)
+  // Si recorre todo es que es el numero maximo
   if (i == 0) return -1;
+  // Aqui divide el rango a tratar de inicio que
+  // no cambiara
   let suf = chars.splice(i).sort();
   console.log(suf)
   console.log(chars)
+  // tomamos el valor final del inicio
   let t = chars[chars.length-1];
   console.log(t)
+  console.log(chars)
   for (i = 0; i < suf.length; ++i) {
     if (suf[i] > t) break;
   }
+  console.log(chars)
   chars[chars.length-1] = suf[i]
   suf[i] = t;
   let res = chars.concat(suf);
@@ -130,7 +140,8 @@ function nextBigger2(n){
 
   let arr = sortedDigits(n);
   let max = parseInt(arr.join(''), 10);
-
+  console.log(arr)
+  console.log(max)
   for(let i = n + 1; i <= max; i++){
     if(sortedDigits(i).every((x, j) => x === arr[j])){
       return i;
@@ -142,8 +153,8 @@ function nextBigger2(n){
 // * -------------------------------------------------------------------
 
 // console.log(nextBigger1(29965200)) //50022699
-console.log(nextBigger1(72510))
-// console.log(nextBigger(12)) //21
+console.log(nextBigger2(72510))
+console.log(nextBigger(12)) //21
 // console.log(nextBigger(513)) //531
 // console.log(nextBigger(2017)) //2071
 // console.log(nextBigger(414)) //441
