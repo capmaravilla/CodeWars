@@ -1,7 +1,13 @@
-from itertools import product
+def data_reverse(data):
+    array = [x for x in data]
+    final = []
+    for _ in range(int(len(array) / 8)):
+        a = [array.pop(0) for _ in range(8)]
+        final.append(a)
 
-ADJACENTS = ("08", "124", "2135", "326", "4157", "52468", "6359", "748", "85790", "968")
+    return final
 
 
-def get_pins(observed):
-    return ["".join(p) for p in product(*(ADJACENTS[int(d)] for d in observed))]
+bits = [1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 2, 0, 2, 0, 2, 0, 3, 0, 3, 0, 3, 0, 3, 0]
+
+print(data_reverse(bits))
