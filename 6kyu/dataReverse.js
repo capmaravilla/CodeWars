@@ -17,8 +17,6 @@ function dataReverse(data) {
   return final;
 }
 
-
-
 // * -------------------------------------------------------------------
 
 const dataReverse1 = (data) => {
