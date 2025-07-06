@@ -8,6 +8,7 @@ function sumDigits(number) {
     .toString()
     .split("")
     .reduce((acc, el) => +acc + +el, 0);
+  // TODO un + delante para pasarlo a numero
 }
 
 function sumDigits1(number) {
