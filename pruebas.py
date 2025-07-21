@@ -1,22 +1,25 @@
-def strip_comments(strng, markers):
-    lines = strng.split("\n")
-    for idx, line in enumerate(lines):
-        for mark in markers:
-            if lines[idx].count(mark):
-                i = lines[idx].find(mark)
-                if i == 0:
-                    lines[idx] = ""
-                elif 1 == -1:
-                    lines[idx] = lines[idx][0:-1].rstrip()
-                else:
-                    lines[idx] = lines[idx][0:i].rstrip()
-
-    return "\n".join(lines)
+a = ("10", "Q")
+print(tuple(sorted(a, reverse=True)))
 
 
-print(
-    strip_comments(
-        ", pears watermelons bananas apples @\ncherries @\n! bananas pears\npears watermelons",
-        ["?", ",", "!", "@"],
-    )
-)
+def otro(a: str, b: str):
+    return (a, b)
+
+
+print(otro("F", "10"))
+from typing import Union
+
+amigo = "David"
+edad = 98
+direccion: dict[str, Union[str, int]] = {"calle": "uno", "numero": 9}
+
+
+def quien(a: str, b: str, c: dict[str, Any]):
+    return f"{amigo} de {edad} y {direccion}"
+
+
+def otromas(a, b):
+    return amigo + edad
+
+
+print(otromas(amigo, edad))
