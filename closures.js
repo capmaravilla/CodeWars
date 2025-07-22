@@ -28,6 +28,12 @@ export function composeTransform(fn1, fn2) {
   }
 }
 
+export function composeTransform2(f, g) {
+  return function composed(x, y) {
+    return g(...f(x, y))
+  }
+}
+
 const composedTransformations = composeTransform(
   moveCoordinatesRight2Px,
   doubleCoordinates
@@ -65,6 +71,19 @@ function memoizeTransform(f) {
 
     // retorna el resultado ( anterior o el que acabamos de generar)
     return lastResult
+  }
+}
+
+export function memoizeTransform2(f) {
+  let previousX, previousY, previousResult
+
+  return function memoised(x, y) {
+    if (previousX === x && previousY === y) {
+      return previousResult
+    }
+    previousX = x
+    previousY = y
+    return (previousResult = f(x, y))
   }
 }
 
