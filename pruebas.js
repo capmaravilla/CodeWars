@@ -1,6 +1,7 @@
-function sumar(nums) {
+function rec(nums) {
   return nums.reduce((acc, el) => acc + el, 0)
 }
 
-const numeros = [1, 2, 3, 4, 5]
-console.log(sumar(numeros))
+const nums = [1, 2, 3, 4, 5]
+
+console.log(rec(nums))
