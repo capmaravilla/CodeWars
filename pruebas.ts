@@ -1,18 +1,35 @@
-export enum ResistorValues {
-  black = 0,
-  brown = 1,
-  red = 2,
-  orange = 3,
-  yellow = 4,
-  green = 5,
-  blue = 6,
-  violet = 7,
-  grey = 8,
-  white = 9,
+function sumar(a: number[]) {
+  return a.reduce((acc, el) => acc + el, 0)
 }
 
-type Color = keyof typeof ResistorValues
+const numeros = [1, 2, 3, 4, 5]
 
-export function decodedValue([first, second]: Color[]): number {
-  return Number(`${ResistorValues[first]}${ResistorValues[second]}`)
+console.log(sumar(numeros))
+
+type Programador = {
+  nombre: string
+  edad: number
+  activo?: boolean | null
+}
+
+let programador1: Programador = {
+  nombre: 'David',
+  edad: 48,
+}
+
+let programador2: Programador = {
+  nombre: 'Nori',
+  edad: 17,
+  activo: null,
+}
+
+interface Persona {
+  nombre: string
+  edad: number
+  activo?: boolean | null
+}
+
+let otro: Persona = {
+  nombre: 'Otro',
+  edad: 33,
 }
