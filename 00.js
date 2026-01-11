@@ -43,7 +43,7 @@ function to_camel_case(text) {
 
 console.log(to_camel_case(sample2))
 
-function fibonacci(num) {
+function fibonacciV1(num) {
   cache = [0, 1]
   for (let i = 2; i < num; i++) {
     const next = cache[cache.length - 2] + cache[cache.length - 1]
@@ -53,7 +53,7 @@ function fibonacci(num) {
   return cache
 }
 
-const resultado = fibonacci(10)
+const resultado = fibonacciV1(10)
 console.log(resultado)
 
 function fibo22(num) {

@@ -1,5 +1,5 @@
 // Calculamos los numeros y los añadimos al array
-function fibonacci(n) {
+function fibonacciV1(n) {
   const cache = []
   for (let i = 0; i < n; i++) {
     if (cache.length < 2) {
@@ -12,7 +12,7 @@ function fibonacci(n) {
 }
 
 // Calculamos los numeros y los modificamos en el array
-function fibonacci2(n) {
+function fibonacciV2(n) {
   if (n <= 0) return []
   const cache = new Array(n)
   cache[0] = 0
@@ -24,7 +24,7 @@ function fibonacci2(n) {
 }
 
 //Calculamos los numeros de forma recursiva y los modificamos en el array
-function fibonacci3(n) {
+function fibonacciV3(n) {
   function fiboNum(num) {
     if (num < 2) return num
     return fiboNum(num - 1) + fiboNum(num - 2)
@@ -36,12 +36,10 @@ function fibonacci3(n) {
   return cache
 }
 
-const r1 = fibonacci(9)
-const r2 = fibonacci2(9)
-const r3 = fibonacci3(9)
+const r1 = fibonacciV1(9)
+const r2 = fibonacciV2(9)
+const r3 = fibonacciV3(9)
 
 console.log(r1)
 console.log(r2)
 console.log(r3)
-
-// Esto seria un comentari
