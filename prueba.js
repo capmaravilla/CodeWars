@@ -35,11 +35,3 @@ function fibonacciV3(n) {
   }
   return cache
 }
-
-const r1 = fibonacciV1(9)
-const r2 = fibonacciV2(9)
-const r3 = fibonacciV3(9)
-
-console.log(r1)
-console.log(r2)
-console.log(r3)
