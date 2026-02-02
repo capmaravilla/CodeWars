@@ -1,22 +1,36 @@
-class Vehicle:
-    def __init__(self, seats, wheels, engine):
-        self.seats = seats
-        self.wheels = wheels
-        self.engine = engine
-porsche = Vehicle(2, 4, 'Gas')
-# "Hi, I'm one of those Planets! Have a look at my moon."
+def list_fibo_normal(n):
+    """
+    The function `list_fibo_normal` generates a list of Fibonacci numbers up to a specified limit using
+    a normal iterative approach.
 
-class Planet:
-    def __init__(self, moon):
-        self.moon = moon
+    :param n: The parameter `n` in the `list_fibo_normal` function represents the number of Fibonacci
+    numbers to generate in the list
+    :return: The function `list_fibo_normal(n)` returns a list of the first `n` Fibonacci numbers.
+    """
+    cache = []
+    for i in range(n):
+        if i < 2:
+            cache.append(i)
+        else:
+            cache.append(cache[-1] + cache[-2])
+    return cache
 
-earth = Planet('moon')
-# "Hi, I'm one of those Vehicles! Have a look at my engine, seats and wheels."
 
-def show_me(instance):
-    return f"Hi, I'm one of those {}s! Have a look at my {}."
+print(list_fibo_normal(10))
 
-print(show_me(earth))
 
-porsche.__dir__
+def fibonacci_recursive(n):
+    cache = []
 
+    def fib(num):
+        if num < 2:
+            return num
+        else:
+            return fib(num - 1) + fib(num - 2)
+
+    for i in range(n):
+        cache.append(fib(i))
+    return cache
+
+
+print(fibonacci_recursive(10))
